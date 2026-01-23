@@ -1,10 +1,10 @@
-from enum import Enum
+from enum import Enum, auto
 
 class TicketType(Enum):
-  CHILD = 0
-  ADULT = 1
-  SENIOR = 2
-  MEMBER_DISCOUNT = 3
+  CHILD = auto()
+  ADULT = auto()
+  SENIOR = auto()
+  MEMBER_DISCOUNT = auto()
 
 def get_age():
   while True:
@@ -33,18 +33,18 @@ def ticket_type_pricing(status, age):
     return TicketType.CHILD
   elif 12 <= age <= 59:
     return TicketType.ADULT
-  elif age >= 60:
+  else: 
     return TicketType.SENIOR
 
 def display_result(pricing):
   if pricing == TicketType.MEMBER_DISCOUNT:
-    print("Ticket Price: $7")
+    print("Ticket Price for Member: $7")
   elif pricing == TicketType.CHILD:
-    print("Ticket Price: $5")
+    print("Ticket Price for Child: $5")
   elif pricing == TicketType.SENIOR:
-    print("Ticket Price: $8")
+    print("Ticket Price for Senior: $8")
   else:
-    print("Ticket Price: $12")
+    print("Ticket Price for Adult: $12")
 
 def main():
   age = get_age()
